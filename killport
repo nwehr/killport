@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ -n "$1" ]; then
+    cmd=$(lsof -i :$1 | grep LISTEN | awk '{print $1}' | head -n 1)
+    pid=$(lsof -i :$1 | grep LISTEN | awk '{print $2}' | head -n 1)
+
+    if [ -n "$cmd" ]; then
+        read  -n 1 -p "kill $pid ($cmd)? [enter, ctrl-c to cancel]: "
+        kill $pid
+    fi
+else
+    echo "Usage:"
+    echo "  killport <port>"
+fi
