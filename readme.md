@@ -5,7 +5,7 @@
 ### Installation
 
 ```
-$ cp killport /usr/local/bin/
+$ brew install nwehr/tap/killport
 ```
 
 ### Usage
